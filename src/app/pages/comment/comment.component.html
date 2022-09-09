@@ -1,0 +1,133 @@
+<!-- <p>comment works!</p>
+
+<div *ngFor="let blog of Blogs">
+    <h5>{{blog.name}}</h5>
+    <p>{{blog.about}}</p>
+
+    <div *ngFor="let first of blog.comments">
+        <p>{{first.comment}}</p>
+        <p>{{first.userName}}</p>
+    </div>
+
+    <input type="text" name="" id="" placeholder="Add Comment" [(ngModel)]="blog.tempComment">
+ <button (click)="PostComment(blog._id,blog)">Post </button>
+</div> -->
+
+<!-- <div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="card m-2 " *ngFor="let blog of Blogs; index as i">
+                    <div class="card-header d-flex justify-content-between" style="align-items: center;">
+                        <h5>{{blog.name}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text about">{{blog.about}}</p>
+                    </div>
+                    <hr>
+                    <h5>Comments</h5>
+                    <textarea type="text" name="" id="" placeholder="Add Comment" [(ngModel)]="blog.tempComment"></textarea><br>
+                    <button (click)="PostComment(blog._id,blog)">Post </button>
+                    <hr>
+                    <div *ngFor="let first of blog.comments" class="d-flex justify-content-between">
+                        <span>{{first.userName}}</span>
+                        <span>{{first.comment}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- mysection -->
+
+<header class="fullcolor">
+
+    <section class="container my-4 col-md-8 col-sm-12">
+        <div class="row">
+        <div class="col-md-12">
+            <div *ngFor="let blog of Blogs" class="mt-5">
+                <div class="card card-body p-5">
+                    <h3 class="h3"> {{blog?.name}} </h3>
+                    <small class="text-secondary" style="font-size: 16px;">Author : {{blog?.authorDetail?.name}}</small>
+                    <small class="text-secondary" style="font-size: 16px;">Posted on : {{blog?.created_at |
+                        date}}</small>
+                        <p style="font-size: 14px" class="mt-3" [innerHTML]="blog?.about"></p>
+                        <small class="text-secondary mb-3">Comment Here :</small>
+                    <div class="">
+                        <textarea class="form-control" name="" id="" [(ngModel)]="blog.tempComment" rows="3"></textarea>
+                        <button style="background-color: #ff6219db" class="btn text-light mt-3 btn-sm px-4"
+                        (click)="PostComment(blog._id,blog)">Post</button>
+                    </div>
+                    <div class="">
+                        <ul class="list-unstyled">
+                            <p class="text-secondary mt-4" *ngIf="!blog?.comments.length">There Are No Comments Yet</p>
+                            <p class="text-secondary mt-4" *ngIf="blog?.comments.length">Comments
+                                {{blog?.comments.length}}</p>
+                                <li class="my-3" *ngFor="let comment of blog.comments">
+                                <hr>
+                                <div class="d-flex gap-2">
+                                    <img src="https://raw.githubusercontent.com/Awaisetics/Blog-App-Angular/master/src/assets/userAvatar.png"
+                                    alt="user avatar" class="align-self-start" style="width:45px">
+                                    <div class="flex-grow-1">
+                                        <span class="fw-bold me-2">{{comment?.userName}}</span>
+                                        <small class="text-secondary"><i>Posted on {{comment.postedAt | date
+                                                }}</i></small>
+                                                <p style="font-size: 14px;" class="mb-0">{{comment.comment}}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+<!-- New Section Awais -->
+
+
+<!-- <section class="container my-4 col-md-10 col-sm-12">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <div class="card card-body p-5">
+                    <h3 class="h3"> {{blog?.name}} </h3>
+                    <small class="text-secondary" style="font-size: 16px;">Author : {{blog?.authorDetail?.name}}</small>
+                    <small class="text-secondary" style="font-size: 16px;">Posted on : {{blog?.postedAt | date}}</small>
+                    <p style="font-size: 14px" class="mt-3" [innerHTML]="blog?.content"></p>
+                    <div style="line-height: 2.7rem;" class="d-flex flex-wrap mb-5" *ngIf="blog?.tags?.length">
+                        <span class="me-3">Tags : </span>  
+                        <div class="me-2" *ngFor = "let tag of blog?.tags">
+                            <small style="background-color: #ff5c10b5 ; font-size: 12px;" class="rounded-pill text-white px-3 py-2">{{tag}}</small>
+                        </div>
+                    </div>
+                    <small class="text-secondary mb-3">Comment Here :</small>
+                    <div class="">
+                        <textarea class="form-control" name="" id="" [(ngModel)]="comment" rows="3"></textarea>
+                        <button style="background-color: #ff6219db" class="btn text-light mt-3 btn-sm px-4" (click)="addComment(blog._id)">Post</button>
+                    </div>
+                    <div class="">
+                        <ul class="list-unstyled">
+                            <p class="text-secondary mt-4" *ngIf="!blog?.comments.length">There Are No Comments Yet</p>
+                            <p class="text-secondary mt-4" *ngIf="blog?.comments.length">Comments {{blog?.comments.length}}</p>
+                            <li class="my-3" *ngFor="let comment of blog.comments">
+                                <hr>
+                                <div class="d-flex gap-2"> 
+                                    <img src="assets/userAvatar.png" alt="user avatar" class="align-self-start" style="width:45px">
+                                    <div class="flex-grow-1">
+                                        <span class="fw-bold me-2">{{comment?.userId?.name}}</span>
+                                        <small class="text-secondary"><i>Posted on {{comment.postedAt | date }}</i></small>
+                                        <p style="font-size: 14px;" class="mb-0">{{comment.comment}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->

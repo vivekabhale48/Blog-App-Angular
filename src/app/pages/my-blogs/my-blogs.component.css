@@ -1,0 +1,14 @@
+.about{
+    height: 6rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+.back{
+    position: relative;
+    top: -25px;
+    height: calc(100vh - 80px);
+    background-color: rgb(8, 8, 55);
+}
+

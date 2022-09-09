@@ -1,0 +1,40 @@
+<header class="back">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="alert alert-danger" role="alert" *ngIf="loginError">
+                Login Error !
+            </div>
+            <div class="col-md-6" >
+                <div class="card shadow p-3" style="background-color: #eee; margin-top: 200px;">
+                    <h3>Login</h3>
+                    <hr>
+                    <form [formGroup]="loginForm">
+                        <div class="form-group">
+                            <label for="name">Email</label>
+                            <input type="text" formControlName="email" class="form-control" id="email"
+                                placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Password</label>
+                            <input type="password" formControlName="password" class="form-control" id="pwd"
+                                placeholder="Enter your password">
+                        </div>
+
+                        <div class="row mt-3 justify-content-center">
+
+                            <div class="col-md-6">
+                                <button class="btn btn-success btn-block w-100" (click)="submitted()">Login
+                                    <div class="spinner-border text-light" role="status" *ngIf="loading">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </button>
+                                <a routerLink="/regist" class="d-flex justify-content-center mt-2">New user? Click to
+                                    Register!</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

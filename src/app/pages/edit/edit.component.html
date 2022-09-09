@@ -1,0 +1,35 @@
+<div *ngIf="alert" class=" alert alert-success alert-dismissible fade show d-flex justify-content-center"> 
+    <strong>Success ! </strong> Your data has been entered successfully. 
+</div>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-19 mt-5 p-3">
+                <h3>Edit Blog</h3>
+                <hr>
+                <form [formGroup]="editForm" (ngSubmit)="afterSubmit()">
+                    <div class="form-group">
+                        <label for="name">Blog Title</label>
+                        <input type="text" formControlName="name" class="form-control" id="name"
+                            placeholder="" value="{{nameTask}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">About</label>
+                        <!-- <textarea type="text" formControlName="about" class="form-control" id="about"
+                            placeholder="{{aboutTask}}"></textarea> -->
+                            <angular-editor [config]="editorConfig" [placeholder]="'Write here...'" formControlName="about"  ></angular-editor>
+                    </div>
+
+
+                    <div class="row mt-3 justify-content-center">
+                        <div class="col-md-6">
+                            <button class="btn btn-success btn-block w-100" (click)="update()">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

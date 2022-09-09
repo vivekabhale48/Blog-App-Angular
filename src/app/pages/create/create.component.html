@@ -1,0 +1,35 @@
+<div class="back">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div *ngIf="alert" class=" alert alert-success alert-dismissible fade show d-flex justify-content-center">
+                <strong>Success ! </strong> Your data has been entered successfully.
+            </div>
+            <div class="col-md-6 w-60" style="margin-top: 120px;">
+                <div class="card shadow-19 mt-5 p-3" style="background-color: #eee; margin-top: 100px;">
+                    <h3>Write a Blog</h3>
+                    <hr>
+                    <form [formGroup]="createForm">
+                        <div class="form-group">
+                            <label for="name">Title</label>
+                            <input type="text" formControlName="name" class="form-control" id="name"
+                                placeholder="Title of a blog">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">About</label>
+                            <angular-editor [placeholder]="'Write here...'" formControlName="about"></angular-editor>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <button class="btn btn-danger btn-block w-100" (click)="reset()">Reset</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-success btn-block w-100" (click)="save()">Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+.back {
+    background-image: url('https://th.bing.com/th/id/R.1a6b473f214cbcf722070b8e136f358c?rik=kd6HScGtFsce6g&riu=http%3a%2f%2fwallpapercave.com%2fwp%2ffRu035H.jpg&ehk=0GLMrIv0kjEjJP0OVuC3gZ68uIhwqpU%2fHhTauN02oLk%3d&risl=&pid=ImgRaw&r=0');
+    height: calc(100vh - 56px);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}

@@ -1,0 +1,7 @@
+.back{
+    background-image: url('../../../../../../../123.jpg');
+    height: calc(100vh - 56px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
